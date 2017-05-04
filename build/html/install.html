@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Foreman &mdash; Foreman &amp; Ansible docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Foreman &amp; Ansible docs 1.0 documentation" href="index.html"/>
+        <link rel="next" title="OS Configurations" href="config_playbook.html"/>
+        <link rel="prev" title="Services" href="services.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Foreman & Ansible docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Informations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docutils.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Install Foreman</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Foreman-ansible-postgres</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#foreman-ansible-postgres-playbook">Foreman-ansible-postgres Playbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supported-distributions">Supported distributions:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#github-repo">Github repo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_playbook.html">OS Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_pl_requir.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_config.html">Deployement Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playbook_config.html">Playbook Configuration</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Foreman & Ansible docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installing Foreman</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-foreman">
+<h1>Installing Foreman<a class="headerlink" href="#installing-foreman" title="Permalink to this headline">¶</a></h1>
+<p>Foreman is using a lot of components, and installing them manualy will take a lot of time, so we are using an Ansible playbook to install foreman.</p>
+<div class="section" id="foreman-ansible-postgres-playbook">
+<h2>Foreman-ansible-postgres Playbook<a class="headerlink" href="#foreman-ansible-postgres-playbook" title="Permalink to this headline">¶</a></h2>
+<p>The foreman-ansible-postgres is a fork of foreman-ansible, that support PostgreSQL and Powerdns.</p>
+<p>the playbook contains multiple different roles with numerous customizable variables, which provide the following features:</p>
+<ul class="simple">
+<li>Setup database (PostgreSQL)</li>
+<li>Setup webserver (plain nginx as a proxy or nginx-passenger)</li>
+<li>Setup isc-dhcp-server</li>
+<li>Setup TFTP server</li>
+<li>Setup powerdns</li>
+<li>Setup foreman-proxy</li>
+<li>Setup Foreman including configuration (templates, hosts, domains, etc.)</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">None of the roles will install Puppet or use the official foreman-installer, instead the plain Foreman packages are used!</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In addition this playbook makes use of foreman-yml to automatically configure Foreman through the API based on a YAML file, which includes adding all templates, OS, media, hosts, etc. and linking them accordingly.</p>
+</div>
+<div class="section" id="supported-distributions">
+<h3>Supported distributions:<a class="headerlink" href="#supported-distributions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Debian 7 &amp; 8</li>
+<li>Ubuntu 14.04 &amp; 16.04</li>
+<li>CentOS 6 &amp; 7</li>
+<li>Red Hat Enterprise Linux 6 &amp; 7</li>
+</ul>
+</div>
+<div class="section" id="github-repo">
+<h3>Github repo<a class="headerlink" href="#github-repo" title="Permalink to this headline">¶</a></h3>
+<p>You clone the repo from: <a class="reference external" href="https://github.com/invicnaper/foreman-ansible-postgres">https://github.com/invicnaper/foreman-ansible-postgres</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="config_playbook.html" class="btn btn-neutral float-right" title="OS Configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="services.html" class="btn btn-neutral" title="Services" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Hamza Bourrahim.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

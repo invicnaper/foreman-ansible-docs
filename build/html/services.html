@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Services &mdash; Foreman &amp; Ansible docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Foreman &amp; Ansible docs 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Installing Foreman" href="install.html"/>
+        <link rel="prev" title="Getting Started" href="get_started.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Foreman & Ansible docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Informations</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="docutils.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tftp">TFTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dhcp">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ansible">Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Install Foreman</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Foreman-ansible-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_playbook.html">OS Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_pl_requir.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_config.html">Deployement Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playbook_config.html">Playbook Configuration</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Foreman & Ansible docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Services</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/services.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="services">
+<h1>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h1>
+<p>Foreman needs many services for doing his job, this section will introduce you those different services</p>
+<div class="section" id="tftp">
+<h2>TFTP<a class="headerlink" href="#tftp" title="Permalink to this headline">¶</a></h2>
+<p>Trivial File Transfer Protocol (TFTP) is a simple lockstep File Transfer Protocol which allows a client to get a file from or put a file onto a remote host. One of its primary uses is in the early stages of nodes booting from a local area network. TFTP has been used for this application because it is very simple to implement.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Tftp is used along with Pxelinux, for booting from PXE.</p>
+</div>
+</div>
+<div class="section" id="dhcp">
+<h2>DHCP<a class="headerlink" href="#dhcp" title="Permalink to this headline">¶</a></h2>
+<p>The Dynamic Host Configuration Protocol (DHCP) is a standardized network protocol used on Internet Protocol (IP) networks. The DHCP is controlled by a DHCP server that dynamically distributes network configuration parameters.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The server where Foreman is installed is playing the DHCP server.</p>
+</div>
+</div>
+<div class="section" id="ansible">
+<h2>Ansible<a class="headerlink" href="#ansible" title="Permalink to this headline">¶</a></h2>
+<p>Ansible is used for installing Foreman, and then used as a plugin in Foreman for ghatering facts</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Playbooks were tested with Ansible 2.3</p>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>To understand the use of every service, we&#8217;ve got two machines:</p>
+<ul class="simple">
+<li>The Manage node (where foreman is installed)</li>
+<li>The Controller node (the host we want to build)</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">When the controller node is booting on PXE mode, the Manage node who&#8217;s the DHCP server, will assign to the controller node an Ip address, along with a fileName. The filename is the <strong>pxelinux.0</strong> (<strong>/var/lib/tftpboot/pxelinux.0</strong>), after that, the controller node try to connect to the TFTP server to download the <strong>pxelinux.0</strong> and the <strong>pxelinux.cfg</strong> and then loading linux image. When the Controller is built, we can deploy playbooks using Ansible.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install.html" class="btn btn-neutral float-right" title="Installing Foreman" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="get_started.html" class="btn btn-neutral" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Hamza Bourrahim.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

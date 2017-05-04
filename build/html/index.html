@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Deploy a Host using Foreman and Ansible, from A to Z &mdash; Foreman &amp; Ansible docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Foreman &amp; Ansible docs 1.0 documentation" href="#"/>
+        <link rel="next" title="Conventions" href="docutils.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Foreman & Ansible docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Informations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docutils.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Install Foreman</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Foreman-ansible-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_playbook.html">OS Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_pl_requir.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_config.html">Deployement Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playbook_config.html">Playbook Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_playbook_fa.html">Deploy Foreman-ansible-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras_playbooks.html">Extra playbooks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Foreman & Ansible docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Deploy a Host using Foreman and Ansible, from A to Z</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deploy-a-host-using-foreman-and-ansible-from-a-to-z">
+<h1>Deploy a Host using Foreman and Ansible, from A to Z<a class="headerlink" href="#deploy-a-host-using-foreman-and-ansible-from-a-to-z" title="Permalink to this headline">¶</a></h1>
+<p>This documentation aims to help you deploying a Host using Foreman, it will covers all the parts that you need.</p>
+<img alt="https://raw.githubusercontent.com/theforeman/foreman-graphics/master/logo/foreman_medium.png" src="https://raw.githubusercontent.com/theforeman/foreman-graphics/master/logo/foreman_medium.png" />
+<img alt="https://camo.githubusercontent.com/d19015df150e21d6782d3fcbe4356a7318cc5b00/68747470733a2f2f7777772e6c696e7578747269636b732e66722f75706c6f61642f616e7369626c652e706e67" src="https://camo.githubusercontent.com/d19015df150e21d6782d3fcbe4356a7318cc5b00/68747470733a2f2f7777772e6c696e7578747269636b732e66722f75706c6f61642f616e7369626c652e706e67" />
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound" id="user-docs">
+<p class="caption"><span class="caption-text">Informations</span><a class="headerlink" href="#user-docs" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docutils.html">Conventions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docutils.html#notices">Notices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docutils.html#command-prompts">Command prompts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#foreman">Foreman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_started.html#environment">Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#tftp">TFTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#dhcp">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#ansible">Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#overview">Overview</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound" id="secondpart">
+<p class="caption"><span class="caption-text">Install Foreman</span><a class="headerlink" href="#secondpart" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Foreman-ansible-postgres</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#foreman-ansible-postgres-playbook">Foreman-ansible-postgres Playbook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_playbook.html">OS Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_playbook.html#fqdn-configuration">FQDN configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_playbook.html#disable-selinux">Disable SElinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_playbook.html#open-required-ports">Open required ports</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install_pl_requir.html">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install_pl_requir.html#epel-release">Epel-release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_pl_requir.html#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_pl_requir.html#install-ansible">Install Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_pl_requir.html#clone-the-playbook-repo">Clone the Playbook repo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_config.html">Deployement Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy_config.html#inventory-file">Inventory file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_config.html#configure-ssh-keys">Configure SSH Keys</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="playbook_config.html">Playbook Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="playbook_config.html#dhcp">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="playbook_config.html#tftp">TFTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="playbook_config.html#postgresql">PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="playbook_config.html#powerdns">PowerDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="playbook_config.html#foreman-proxy">Foreman-proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="playbook_config.html#foreman-yml">Foreman-yml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="playbook_config.html#foreman">Foreman</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_playbook_fa.html">Deploy Foreman-ansible-postgres</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy_playbook_fa.html#ansible-playbook">Ansible-playbook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extras_playbooks.html">Extra playbooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extras_playbooks.html#ansible-foreman-plugin">Ansible-foreman Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extras_playbooks.html#smart-proxy-powerdns">Smart-proxy-powerdns</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="quick-informations">
+<h2>Quick Informations ?<a class="headerlink" href="#quick-informations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>By Hamza Bourrahim</li>
+<li>This documentation use many Ansible playbooks</li>
+<li>Tested using Centos</li>
+<li>Playbooks tested using Ansible 2.3</li>
+<li>The goal of this doc is to help you deploying a Host using Foreman</li>
+<li>Done for ABlogix</li>
+</ul>
+</div>
+<div class="section" id="screen">
+<h2>Screen<a class="headerlink" href="#screen" title="Permalink to this headline">¶</a></h2>
+<img alt="http://i.imgur.com/RRLGbH1.png" src="http://i.imgur.com/RRLGbH1.png" />
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docutils.html" class="btn btn-neutral float-right" title="Conventions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Hamza Bourrahim.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
