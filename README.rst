@@ -1,3 +1,6 @@
+.. image:: https://readthedocs.org/projects/foreman-ansible-docs/badge/?version=latest
+:target: http://foreman-ansible-docs.readthedocs.io/en/latest/?badge=latest
+:alt: Documentation Status
 Deploy a Host using Foreman and Ansible, from A to Z
 =====================================================
 
@@ -40,6 +43,7 @@ Quick Informations ?
 * Playbooks tested using Ansible 2.3
 * The goal of this doc is to help you deploying a Host using Foreman
 * Done for ABlogix
+* http://foreman-ansible-docs.readthedocs.io/en/latest/
 
 Screen
 -----------------
